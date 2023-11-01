@@ -1,0 +1,26 @@
+CREATE DATABASE Task_01_11_2023
+USE Task_01_11_2023
+Create Table Departments (
+    Id int IDENTITY PRIMARY key,
+    Name NVARCHAR(50) NOT NULL CHECK(Len(Name)>2)
+)
+Insert into Departments
+VALUES
+('Products'),
+('Geographic location'),
+('Customers')
+
+Create Table Employees (
+    Id int PRIMARY key,
+    FullName NVARCHAR(50) NOT NULL CHECK(LEN(FullName)>3),
+    Salary int CHECK(Salary>0),
+    DepartmentId int Foreign key references Departments(Id),
+    Email NVARCHAR(100) NOT NULL UNIQUE
+)
+
+Insert into Employees
+VALUES
+(1,'Zahra',5000,1,'zahra@123'),
+(2,'Elcan',100,2,'elcan@123'),
+(3,'Jalə',5000,1,'jale@123'),
+(4,'Faiq',10000,3,'faiq@123')
